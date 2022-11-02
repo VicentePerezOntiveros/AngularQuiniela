@@ -12,7 +12,7 @@ public homeText: string;
   constructor() { }
 
   ngOnInit(): void {
-    this.homeText = "Bienvenidos Quiniela.";
+    this.homeText = "Bienvenidos Quiniela 2022.";
   }
 
 }
