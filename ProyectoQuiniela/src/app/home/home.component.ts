@@ -7,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-public homeText: string;
+  public homeText: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.homeText = "Bienvenidos Quiniela 2022.";
+    this.homeText = "BIENVENIDOS A QUINIELAS CASAS YES";
   }
-
 }

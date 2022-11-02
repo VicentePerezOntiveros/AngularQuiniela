@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "c6b5c357-0e72-417b-a065-fc6c5899aec3"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ProyectoQuiniela": {
+    "AccountOwnerClient": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +16,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/proyecto-quiniela",
+            "outputPath": "dist/account-owner-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,9 +26,12 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -64,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ProyectoQuiniela:build:production"
+              "browserTarget": "AccountOwnerClient:build:production"
             },
             "development": {
-              "browserTarget": "ProyectoQuiniela:build:development"
+              "browserTarget": "AccountOwnerClient:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ProyectoQuiniela:build"
+            "browserTarget": "AccountOwnerClient:build"
           }
         },
         "test": {
@@ -98,7 +104,5 @@
       }
     }
   },
-  "cli": {
-    "analytics": "11dd8b61-5027-4dac-b187-2585346b42aa"
-  }
+  "defaultProject": "AccountOwnerClient"
 }

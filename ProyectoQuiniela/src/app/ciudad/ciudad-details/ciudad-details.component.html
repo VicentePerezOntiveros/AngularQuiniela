@@ -1,0 +1,68 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Ciudad:</strong>
+      </div>
+      <div class="col-md-3">
+        {{ciudad?.nombreCiudad}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Iniciales de la Ciudad:</strong>
+      </div>
+      <div class="col-md-3">
+        <!--{{ciudad?.dateOfBirth | date: 'dd/MM/yyyy'}}-->
+        {{ciudad?.inicialesCiudad}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Id Estado:</strong>
+        </div>
+        <div class="col-md-3">
+          <!--{{ciudad?.dateOfBirth | date: 'dd/MM/yyyy'}}-->
+          {{ciudad?.estado.idEstado}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Estado:</strong>
+        </div>
+        <div class="col-md-3">
+          <!--{{ciudad?.dateOfBirth | date: 'dd/MM/yyyy'}}-->
+          {{ciudad?.estado.nombreEstado}}
+        </div>
+      </div>
+      <!--Método if else con Angular-->
+    <!--<div class="row" *ngIf='owner?.accounts.length <= 2; else advancedUser'>
+      <div class="col-md-3">
+        <strong>Type of user:</strong>
+      </div>
+      <div class="col-md-3">
+        <span class="text-success">Beginner user.</span>
+      </div>
+    </div>-->
+  </div>
+  <!--Para recorrer un array dentro del objeto base-->
+  
+  <!--<div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID Estado</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let estado of ciudad?.estado">
+              <td>{{estado?.idEstado}}</td>
+              <td>{{estado?.nombreEstado}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>-->
