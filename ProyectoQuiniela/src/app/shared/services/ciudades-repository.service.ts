@@ -3,6 +3,7 @@ import { EnvironmentUrlService } from './environment-url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
+import { CiudadForCreation } from 'src/app/_interfaces/CiudadForCreation.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class CiudadesRepositoryService {
   public ConsultarCiudades = (route: string) => {
     return this.http.get<Ciudad[]>(this.createCompleteRoute(route, this.envUrl.urlAddress));
   }
-  public createCiudad = (route: string, owner: Ciudad) => {
+  public createCiudad = (route: string, owner: CiudadForCreation) => {
     return this.http.post<Ciudad>(this.createCompleteRoute(route, this.envUrl.urlAddress), owner, this.generateHeaders());
   }
   public updateCiudad = (route: string, owner: Ciudad) => {

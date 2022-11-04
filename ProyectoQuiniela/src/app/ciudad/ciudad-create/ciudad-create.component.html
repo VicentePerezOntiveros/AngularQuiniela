@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <form [formGroup]="ciudadForm" autocomplete="off" novalidate (ngSubmit)="createCiudad(ciudadForm.value)">
+      <div class="card card-body bg-light mb-2 mt-2">
+   
+       <!-- <div class="row mb-3">
+          <label for="name" class="col-form-label col-md-2">Name of the owner: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="name" id="name" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('name') 
+            && hasError('name', 'required')">Name is required</em>
+            <em *ngIf="validateControl('name') 
+            && hasError('name', 'maxlength')">Maximum allowed length is 60 characters.</em>
+          </div>
+        </div>-->
+   
+        <div class="mb-3 row">
+          <label for="nombreCiudad" class="col-form-label col-md-2">Nombre de ciudad: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="nombreCiudad" id="nombreCiudad" 
+            class="form-control"/>
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('nombreCiudad') 
+            && hasError('nombreCiudad', 'required')">Nombre de ciudad es requerido</em>
+            <em *ngIf="validateControl('nombreCiudad') 
+            && hasError('nombreCiudad', 'maxlength')">Maximum allowed length is 50 characters.</em>
+          </div>
+        </div>
+   
+        <div class="mb-3 row">
+          <label for="inicialesCiudad" class="col-form-label col-md-2">Iniciales: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="inicialesCiudad" id="inicialesCiudad" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('inicialesCiudad') 
+            && hasError('inicialesCiudad', 'required')">Iniciales es requerido</em>
+            <em *ngIf="validateControl('inicialesCiudad') 
+            && hasError('inicialesCiudad', 'maxlength')">Maximum allowed length is 100 characters.</em>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="idEstado" class="col-form-label col-md-2">Id Estado: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="idEstado" id="idEstado" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('idEstado') 
+              && hasError('idEstado', 'required')">Id de Estado es requerido</em>
+            </div>
+          </div>
+   
+        <br><br>
+   
+        <div class="mb-3 row">
+            <div class="offset-5 col-md-1">
+                <button type="submit" class="btn btn-info" [disabled]="!ciudadForm.valid">Save</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" (click)="redirectToCiudadList()">Cancel</button>
+            </div>
+        </div>
+        
+      </div>
+    </form>
+  </div>
