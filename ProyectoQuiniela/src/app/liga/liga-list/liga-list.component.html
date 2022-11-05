@@ -1,27 +1,24 @@
 <div class="container-fluid">
-    <form [formGroup]="ligaForm" autocomplete="off" novalidate (ngSubmit)="BuscarLiga(ligaForm.value)">
-      <div class="card card-body bg-light mb-2 mt-2">
-   
-  
-        <div class="mb-3 row">
-          <label for="nombreLiga" class="col-form-label col-md-2">Nombre de liga: </label>
-          <div class="col-md-5">
-            <input type="text" formControlName="nombreLiga" id="nombreLiga" 
-            class="form-control"/>
-          </div>
-          <div class="col-md-5">s
-            <em *ngIf="validateControl('nombreLiga') 
-            && hasError('nombreLiga', 'required')">Nombre de liga es requerido</em>
-            <em *ngIf="validateControl('nombreLiga') 
-            && hasError('nombreLiga', 'maxlength')">Maximum allowed length is 50 characters.</em>
-          </div>
+  <form [formGroup]="ligaForm" autocomplete="off" novalidate (ngSubmit)="BuscarLiga(ligaForm.value)">
+    <div class="card card-body bg-light mb-2 mt-2">
+ 
+      <div class="mb-3 row">
+        <label for="nombreLiga" class="col-form-label col-md-2">Nombre de la liga: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="nombreLiga" id="nombreLiga" 
+          class="form-control"/>
         </div>
-      
-        <br><br>
-          
       </div>
-    </form>
-  </div>
+ 
+      <div class="mb-3 row">
+        <div class="offset-5 col-md-1">
+            <button type="submit" class="btn btn-info" [disabled]="!ligaForm.valid">Buscar</button>
+        </div>
+    </div>
+      <br><br>
+    </div>
+  </form>
+</div>
 
 
   <div class="row">
@@ -53,5 +50,3 @@
       </div>
     </div>
   </div>
-
-

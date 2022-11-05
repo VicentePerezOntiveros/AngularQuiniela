@@ -4,7 +4,7 @@ import {LigasRepositoryService } from '../../shared/services/ligas-repository.se
 import { ErrorHandlerService } from './../../shared/services/error-handler.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-liga-list',
@@ -14,7 +14,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LigaListComponent implements OnInit {
   ligas: Liga[];
   errorMessage: string = '';
-
   ligaForm: FormGroup;
 
   constructor(private repository: LigasRepositoryService,private errorHandler: ErrorHandlerService,
@@ -23,22 +22,27 @@ export class LigaListComponent implements OnInit {
 
   ngOnInit(): void {
     this.ligaForm = new FormGroup({
-      nombreLiga: new FormControl('', [Validators.required, Validators.maxLength(60)])
-  })
+      nombreLiga: new FormControl('')
+    });
+
+    this.getLigas();
   }
 
-  validateControl = (controlName: string) => {
-    if (this.ligaForm.get(controlName).invalid && this.ligaForm.get(controlName).touched)
-      return true;
-    
-    return false;
-  } 
+  private getLigas = () => {
+    const liga: Liga = {
+      nombreLiga: ''
+    }
 
-  hasError = (controlName: string, errorName: string) => {
-    if (this.ligaForm.get(controlName).hasError(errorName))
-      return true;
-    
-    return false;
+    const apiAddress: string = 'api/Catalogos/BuscarLigas';
+    this.repository.ConsultarLigas(apiAddress,liga)
+    .subscribe({
+      next: (liga: Liga[]) => this.ligas = liga,
+      error: (err: HttpErrorResponse) =>{
+        this.errorHandler.handleError(err);
+        this.errorMessage = this.errorHandler.errorMessage;
+      }
+      
+    })
   }
 
   BuscarLiga = (ligaFormValue) => {
@@ -48,7 +52,7 @@ export class LigaListComponent implements OnInit {
 
   private executeLigaBuscar = (ligaFormValue) => {
     const liga: Liga = {
-      nombreLiga: ligaFormValue.nombreCiudad
+      nombreLiga: ligaFormValue.nombreLiga
     }
 
     const apiAddress: string = 'api/Catalogos/BuscarLigas';
@@ -64,3 +68,4 @@ export class LigaListComponent implements OnInit {
   }
 
 }
+

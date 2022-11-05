@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  urlAddress: 'https://localhost:7258'
+  urlAddress: 'https://localhost:7258' //Puerto de Vice
+//  urlAddress: 'https://localhost:7079'
 };
 
 /*
