@@ -11,6 +11,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { DatePipe } from '@angular/common';
+import { LigaModule } from './liga/liga.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DatePipe } from '@angular/common';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    LigaModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
