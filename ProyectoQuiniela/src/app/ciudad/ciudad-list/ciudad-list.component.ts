@@ -39,4 +39,9 @@ export class CiudadListComponent implements OnInit {
     this.router.navigate([detailsUrl]); 
   }
 
+  public redirectToUpdatePage = (id) => { 
+    const updateUrl: string = `/ciudad/update/${id}`; 
+    this.router.navigate([updateUrl]); 
+  }
+
 }

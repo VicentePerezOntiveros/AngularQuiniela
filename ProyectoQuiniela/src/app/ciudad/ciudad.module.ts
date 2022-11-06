@@ -8,13 +8,15 @@ import { CiudadCreateComponent } from './ciudad-create/ciudad-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { SharedModule } from '../shared/shared.module';
+import { CiudadUpdateComponent } from './ciudad-update/ciudad-update.component';
 
 
 @NgModule({
   declarations: [
     CiudadListComponent,
     CiudadDetailsComponent,
-    CiudadCreateComponent
+    CiudadCreateComponent,
+    CiudadUpdateComponent
   ],
   imports: [
     CommonModule,
