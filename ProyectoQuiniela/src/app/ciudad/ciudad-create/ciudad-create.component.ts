@@ -17,6 +17,7 @@ import { Estado } from 'src/app/_interfaces/estado.model';
   styleUrls: ['./ciudad-create.component.css']
 })
 export class CiudadCreateComponent implements OnInit {
+  estados: Estado[];
   errorMessage: string = '';
   ciudadForm: FormGroup;
   bsModalRef?: BsModalRef;
@@ -27,10 +28,26 @@ export class CiudadCreateComponent implements OnInit {
     this.ciudadForm = new FormGroup({
       nombreCiudad: new FormControl('', [Validators.required, Validators.maxLength(60)]),
       //dateOfBirth: new FormControl('', [Validators.required]),
-      idEstado: new FormControl('', [Validators.required]),
-      inicialesCiudad: new FormControl('', [Validators.required, Validators.maxLength(100)])
+      //idEstado: new FormControl('', [Validators.required]),
+      inicialesCiudad: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      idEstadoCombo: new FormControl('', [Validators.required])
   });
+
+  this.getEstados();
 }
+
+private getEstados = () => {
+  const apiUrl: string = 'api/Catalogo/ConsultarEstados'; 
+  this.repository.ConsultarEstados(apiUrl)
+  .subscribe({
+    next: (estados: Estado[]) => this.estados = estados,
+    error: (err: HttpErrorResponse) => {
+      this.errorHandler.handleError(err);
+      this.errorMessage = this.errorHandler.errorMessage;
+    }
+  })
+}
+
 
 validateControl = (controlName: string) => {
   if (this.ciudadForm.get(controlName).invalid && this.ciudadForm.get(controlName).touched)
@@ -51,9 +68,14 @@ createCiudad = (ciudadFormValue) => {
 }
 
 private executeCiudadCreation = (ciudadFormValue) => {
-  const estado: Estado = {
-    idEstado: ciudadFormValue.idEstado
-  }
+  /*const estado: Estado = {
+    idEstado: ciudadFormValue.idEstadoCombo
+    //idEstado: ciudadFormValue.idEstado,
+    //idEstado: ciudadFormValue.idEstadoCombo
+  }*/
+
+  const estado: Estado = ciudadFormValue.idEstadoCombo
+  
 
   const owner: CiudadForCreation = {
     nombreCiudad: ciudadFormValue.nombreCiudad,
@@ -87,3 +109,4 @@ redirectToCiudadList = () => {
 }
 
 }
+

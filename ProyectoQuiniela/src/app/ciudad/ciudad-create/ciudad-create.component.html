@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="mb-3 row">
+        <!--<div class="mb-3 row">
             <label for="idEstado" class="col-form-label col-md-2">Id Estado: </label>
             <div class="col-md-5">
               <input type="text" formControlName="idEstado" id="idEstado" class="form-control" />
@@ -51,7 +51,20 @@
               <em *ngIf="validateControl('idEstado') 
               && hasError('idEstado', 'required')">Id de Estado es requerido</em>
             </div>
-          </div>
+          </div>-->
+
+          <div class="mb-3 row">
+            <label>Seleccione estado</label>
+            <select  formControlName="idEstadoCombo" id="idEstadoCombo" class="form-control">
+              <option *ngFor="let dato of estados" [ngValue]="dato">
+                 {{dato.nombreEstado}}
+             </option>
+            </select>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('idEstadoCombo') 
+              && hasError('idEstadoCombo', 'required')">Estado es requerido</em>
+            </div>
+    </div>
    
         <br><br>
    
@@ -63,6 +76,8 @@
                 <button type="button" class="btn btn-danger" (click)="redirectToCiudadList()">Cancel</button>
             </div>
         </div>
+
+      
         
       </div>
     </form>

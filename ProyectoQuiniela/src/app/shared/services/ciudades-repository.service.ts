@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 import { CiudadForCreation } from 'src/app/_interfaces/CiudadForCreation.model';
+import { Estado } from 'src/app/_interfaces/estado.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,9 @@ export class CiudadesRepositoryService {
   }
   public deleteCiudad = (route: string, owner: Ciudad) => {
     return this.http.post(this.createCompleteRoute(route, this.envUrl.urlAddress),owner, this.generateHeaders());
+  }
+  public ConsultarEstados = (route: string) => {
+    return this.http.get<Estado[]>(this.createCompleteRoute(route, this.envUrl.urlAddress));
   }
   private createCompleteRoute = (route: string, envAddress: string) => {
     return `${envAddress}/${route}`;
